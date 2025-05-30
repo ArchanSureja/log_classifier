@@ -1,4 +1,4 @@
-from regex import classify_with_regex
+from re_based import classify_with_regex
 from embeddding import classify_with_model
 from llm import classify_with_llm
 
@@ -33,4 +33,4 @@ def classify_csv(input_file):
     return output_file
 
 if __name__ == '__main__':
-    classify_csv("test/test.csv")
+    classify_csv("test/test.csv") 

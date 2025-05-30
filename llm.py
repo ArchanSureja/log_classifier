@@ -1,6 +1,5 @@
 from dotenv import load_dotenv # type: ignore
 from groq import Groq  # type: ignore
-import json 
 import re 
 
 load_dotenv()

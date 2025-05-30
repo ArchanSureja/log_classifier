@@ -1,9 +1,9 @@
-import joblib # type: ignore
-from sentence_transformers import SentenceTransformer # type: ignore 
+import joblib 
+from sentence_transformers import SentenceTransformer 
 
 embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
-classification_model = joblib.load("models\log_classifier.joblib")
-
+classification_model = joblib.load("models//log_classifier.joblib")
+print(classification_model)
 def classify_with_model(log_msg):
     embeddings = embedding_model.encode([log_msg])
     probabilites = classification_model.predict_proba(embeddings)[0]
