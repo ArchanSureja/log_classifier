@@ -9,7 +9,7 @@ interface FileUploadProps {
   onFileUpload: (file: File) => void;
   isLoading: boolean;
 }
-
+const backend_uri = import.meta.env.VITE_BACKEND_URL
 export const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload, isLoading }) => {
   const { toast } = useToast();
 
@@ -34,7 +34,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload, isLoading 
 
   const handleDownloadTestFile = async () => {
     try {
-      const response = await fetch('http://localhost:8000/get-test');
+      const response = await fetch(`${backend_uri}/get-test/`);
       
       if (!response.ok) {
         throw new Error('Failed to download test file');

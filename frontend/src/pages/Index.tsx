@@ -13,19 +13,19 @@ export interface LogEntry {
   target_label: string;
 }
 
+const backend_uri = import.meta.env.VITE_BACKEND_URL 
 const Index = () => {
   const [logs, setLogs] = useState<LogEntry[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-
   const handleFileUpload = async (file: File) => {
     setIsLoading(true);
     try {
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await fetch('http://localhost:8000/classify/', {
+      const response = await fetch(`${backend_uri}/classify/`, {
         method: 'POST',
         body: formData,
       });
